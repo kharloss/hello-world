@@ -7,3 +7,13 @@ steps:
   commands:
   - npm ci
   - npm run test:unit
+- name: publish  
+  image: plugins/docker
+  settings:
+    username:
+      from_secret: docker_username
+    password:
+      from_secret: docker_password
+    repo: kharloss/repo
+    auto_tag: true
+    auto_tag_suffix: drone-build
